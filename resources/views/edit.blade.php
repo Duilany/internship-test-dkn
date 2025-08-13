@@ -39,7 +39,9 @@
     @endif
 
     <br>
-    <a href="{{ route('read') }}">Lihat Data</a>
+    <form action="{{ route('read') }}" method="get" style="display:inline;">
+        <button type="submit">Lihat Data</button>
+    </form>
 
     @if(session('success'))
         <p style="color: green;">{{ session('success') }}</p>

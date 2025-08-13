@@ -74,4 +74,27 @@ class TabunganController extends Controller
 
         return redirect()->route('edit')->with('success', 'Data berhasil disimpan!');
     }
+public function showUploadForm()
+{
+    return view('upload');
+}
+
+public function uploadFile(Request $request)
+{
+    $request->validate([
+        'tabungan_file' => 'required|file|mimes:txt',
+    ]);
+
+    // Simpan file sebagai tabungan.txt di storage/app
+    $request->file('tabungan_file')->storeAs('', 'tabungan.txt');
+
+    return redirect()->route('read')->with('success', 'File berhasil diupload!');
+}
+public function downloadFile()
+{
+    if (!Storage::exists($this->filePath)) {
+        return redirect()->route('read')->with('error', 'File tidak ditemukan.');
+    }
+    return Storage::download($this->filePath, 'tabungan.txt');
+}
 }
