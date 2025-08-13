@@ -1,0 +1,4 @@
+Nomor Rekening|Nama|Saldo Tabungan
+0010203001|Mulyono Sutarmono|133000000
+0010203002|Yana Mulyana|1
+0010203003|Mulyani Pertiwi|2250000
